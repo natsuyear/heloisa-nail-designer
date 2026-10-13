@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Heloísa Nail Designer · Santo André - SP</title>
+    <meta name="description" content="Nail designer em Santo André - SP. Unhas feitas com calma, método e cuidado. Preços claros e agendamento pelo WhatsApp." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&family=Cormorant+Garamond:wght@500;600&display=swap"
+    />
+    <link rel="stylesheet" href="css/hark.css" />
+    <link rel="stylesheet" href="css/hark-hero.css" />
+    <style>
+      /* Brand palette, mapped onto the kit's tokens so every surface stays light and on-brand. */
+      :root,
+      :root[data-theme="dark"] {
+        color-scheme: light;
+        --x-navy: #0f1b3d;
+        --x-navy-2: #17264f;
+        --x-slate: #4f6690;
+        --x-slate-light: #aebcda;
+        --x-silver: #c9ced6;
+        --x-mist: #e8ebf0;
+        --x-paper: #f8f6f2;
+        --x-white: #ffffff;
+        --x-ink: #141c33;
+        --x-ink-2: #48506a;
+        --x-purple: #7b5ea7;
+        --x-serif: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+        --fill-primary-on: var(--x-paper);
+        --text-primary: var(--x-ink);
+        --text-secondary: var(--x-ink-2);
+        --tap: 48px;
+      }
+      body { font: var(--weight-regular) 18px/1.6 var(--sans); color: var(--x-ink); background: var(--x-paper); }
+      :focus-visible { outline: 3px solid var(--x-purple); outline-offset: 3px; border-radius: 4px; }
+      .x-dark :focus-visible { outline-color: var(--x-mist); }
+
+      .x-skip {
+        position: absolute; left: 16px; top: -100px; z-index: 100;
+        display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 20px;
+        background: var(--x-navy); color: var(--x-paper); border-radius: var(--r-pill);
+        font-weight: var(--weight-medium); text-decoration: none;
+      }
+      .x-skip:focus { top: 12px; }
+      .x-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+      .main:focus { outline: none; }
+      .x-hero { margin-top: -16px; }
+
+      /* Full-bleed bands inside the page frame */
+      .x-band { margin-inline: calc(50% - 50vw); padding-inline: max(var(--gutter), calc(50vw - var(--page-max) / 2)); }
+      .x-section { padding-block: clamp(64px, 9vw, 112px); scroll-margin-top: 80px; }
+      .x-dark { background: var(--x-navy); color: var(--x-mist); }
+      .x-mistband { background: var(--x-mist); }
+
+      /* Header */
+      .x-header {
+        position: sticky; top: 0; z-index: 30;
+        background: color-mix(in srgb, var(--x-paper) 94%, transparent);
+        -webkit-backdrop-filter: var(--hark-blur); backdrop-filter: var(--hark-blur);
+        border-bottom: 1px solid var(--x-silver);
+        margin-top: -12px;
+      }
+      .x-header__bar { display: flex; align-items: center; gap: 16px; min-height: 76px; }
+      .x-logo { display: inline-flex; align-items: center; min-height: var(--tap); }
+      .x-logo img { height: 52px; width: auto; }
+      .x-nav { margin-left: auto; }
+      .x-nav ul { display: flex; gap: 4px; margin: 0; padding: 0; list-style: none; }
+      .x-nav a {
+        display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 12px;
+        color: var(--x-ink); text-decoration: none; font-size: 16px; border-radius: var(--r-s);
+        transition: color var(--dur-quick) ease;
+      }
+      .x-nav a:hover { color: var(--x-purple); }
+      .x-menu-btn {
+        display: none; margin-left: auto; min-height: var(--tap); min-width: var(--tap); padding: 0 16px;
+        background: transparent; border: 1px solid var(--x-silver); border-radius: var(--r-pill);
+        font: inherit; font-size: 16px; color: var(--x-ink); cursor: pointer;
+      }
+      @media (max-width: 960px) {
+        .x-menu-btn { display: inline-flex; align-items: center; gap: 8px; }
+        .x-header__cta { display: none; }
+        .x-nav { display: none; position: absolute; left: 0; right: 0; top: 100%; margin: 0;
+          background: var(--x-paper); border-bottom: 1px solid var(--x-silver);
+          padding: 8px max(var(--gutter), calc(50vw - var(--page-max) / 2)) 20px; }
+        .x-header.is-open .x-nav { display: block; }
+        .x-nav ul { flex-direction: column; gap: 0; }
+        .x-nav li + li { border-top: 1px solid var(--x-mist); }
+        .x-nav a { width: 100%; font-size: 18px; padding: 0 4px; min-height: 56px; }
+        .x-nav__cta { margin-top: 12px; border-top: 0 !important; }
+        .x-nav__cta a { justify-content: center; }
+      }
+      @media (min-width: 961px) { .x-nav__cta { display: none; } }
+
+      /* Buttons */
+      .x-btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+        min-height: 52px; padding: 0 26px; border-radius: var(--r-pill);
+        font: var(--weight-medium) 17px/1.2 var(--sans); text-decoration: none; text-align: center;
+        border: 1px solid transparent; cursor: pointer;
+        transition: background-color var(--dur-quick) ease, color var(--dur-quick) ease, border-color var(--dur-quick) ease;
+      }
+      .x-btn--solid { background: var(--x-navy); color: var(--x-paper) !important; }
+      .x-btn--solid:hover { background: var(--x-purple); }
+      .x-btn--light { background: var(--x-paper); color: var(--x-navy) !important; }
+      .x-btn--light:hover { background: var(--x-mist); }
+      .x-btn--ghost { background: transparent; color: var(--x-mist); border-color: var(--x-silver); }
+      .x-btn--ghost:hover { border-color: var(--x-paper); background: rgb(248 246 242 / 0.08); }
+      .x-btn--line { background: transparent; color: var(--x-navy); border-color: var(--x-slate); }
+      .x-btn--line:hover { color: var(--x-purple); border-color: var(--x-purple); }
+      .x-header__cta { min-height: var(--tap); padding: 0 20px; font-size: 16px; }
+      .x-btns { display: flex; flex-wrap: wrap; gap: 12px; }
+      .x-wa { width: 18px; height: 18px; flex: none; }
+
+      /* Hero */
+      .x-hero { position: relative; isolation: isolate; overflow: hidden; background: var(--x-navy); color: var(--x-paper);
+        min-height: clamp(560px, 86vh, 760px); display: flex; align-items: flex-end; }
+      .x-hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 40%; z-index: -2; }
+      .x-hero::after { content: ""; position: absolute; inset: 0; z-index: -1;
+        background: linear-gradient(to top, rgb(15 27 61 / 0.95) 0%, rgb(15 27 61 / 0.75) 45%, rgb(15 27 61 / 0.5) 100%),
+          radial-gradient(ellipse at center, rgb(15 27 61 / 0.35) 0%, transparent 75%); }
+      .x-hero { justify-content: center; text-align: center; }
+      .x-hero__copy { display: grid; gap: 22px; justify-items: center; max-width: 44rem; margin-inline: auto; padding-block: clamp(48px, 7vw, 80px) clamp(48px, 7vw, 88px); }
+      .x-hero .x-eyebrow { justify-content: center; }
+      .x-hero .x-eyebrow::after { content: ""; width: 32px; height: 1px; background: currentColor; }
+      .x-hero__sub { margin-inline: auto; }
+      .x-hero .x-btns { justify-content: center; }
+      .x-crest {
+        width: 200px; height: 200px; margin: 0 auto 4px; border-radius: 50%;
+        display: grid; place-items: center;
+        background: rgb(15 27 61 / 0.8);
+        border: 1px solid var(--x-silver);
+        box-shadow: inset 0 0 0 5px rgb(15 27 61 / 0.8), inset 0 0 0 6px var(--x-silver),
+          0 0 0 1px rgb(201 206 214 / 0.25), 0 0 40px rgb(201 206 214 / 0.18), 0 18px 40px rgb(0 0 0 / 0.45);
+        -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+      }
+      .x-crest img { width: 72%; height: auto; display: block; filter: drop-shadow(0 2px 6px rgb(0 0 0 / 0.35)); }
+      @media (min-width: 768px) { .x-crest { width: 260px; height: 260px; } }
+      @media (prefers-reduced-motion: no-preference) {
+        .x-crest { animation: x-crest-in 900ms var(--ease-out) both; }
+        @keyframes x-crest-in { from { opacity: 0; } to { opacity: 1; } }
+      }
+      .x-eyebrow { display: flex; align-items: center; gap: 12px; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: var(--weight-medium); color: var(--x-slate); }
+      .x-eyebrow::before { content: ""; width: 32px; height: 1px; background: currentColor; }
+      .x-dark .x-eyebrow, .x-hero .x-eyebrow { color: var(--x-silver); }
+      .x-hero h1 { font: var(--weight-medium) clamp(48px, 9vw, 88px)/1.02 var(--x-serif); letter-spacing: -0.01em; }
+      .x-hero__sub { font-size: clamp(19px, 2.2vw, 22px); color: var(--x-mist); max-width: 32ch; }
+
+      /* Section heads */
+      .x-head { display: grid; gap: 14px; margin-bottom: clamp(36px, 5vw, 56px); max-width: 44rem; }
+      .x-head h2 { font: var(--weight-medium) clamp(38px, 5.4vw, 56px)/1.08 var(--x-serif); color: var(--x-navy); }
+      .x-dark .x-head h2 { color: var(--x-paper); }
+      .x-head p { color: var(--x-ink-2); }
+      .x-dark .x-head p { color: var(--x-silver); }
+
+      /* Sobre */
+      .x-about { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(40px, 6vw, 72px); }
+      .x-about__text { display: grid; gap: 20px; max-width: 62ch; font-size: 19px; }
+      .x-about__text p:first-child { font: var(--weight-medium) clamp(26px, 3.2vw, 32px)/1.25 var(--x-serif); color: var(--x-navy); }
+      .x-values { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 32px; margin: 0; padding: 0; list-style: none; }
+      .x-values li { padding-top: 20px; border-top: 1px solid var(--x-silver); display: grid; gap: 6px; }
+      .x-values h3 { font: var(--weight-medium) 28px/1.2 var(--x-serif); color: var(--x-navy); }
+      .x-values p { color: var(--x-ink-2); }
+      .x-values span { font-size: 14px; letter-spacing: 0.12em; color: var(--x-slate); font-weight: var(--weight-medium); }
+
+      /* Serviços */
+      .x-services { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
+      .x-service { position: relative; display: grid; gap: 18px; align-content: space-between; padding: 26px 26px 24px;
+        background: var(--x-white); border: 1px solid var(--x-silver); border-radius: var(--r-m); }
+      .x-service h3 { font: var(--weight-medium) 28px/1.15 var(--x-serif); color: var(--x-navy); }
+      .x-service__meta { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-top: 16px; border-top: 1px solid var(--x-mist); }
+      .x-service__time { font-size: 16px; color: var(--x-ink-2); }
+      .x-service__price { font: var(--weight-bold) 24px/1.2 var(--sans); color: var(--x-navy); font-variant-numeric: tabular-nums; white-space: nowrap; }
+      .x-service__price small { font-size: 15px; font-weight: var(--weight-regular); color: var(--x-ink-2); }
+      .x-service.is-pick { border-color: var(--x-purple); box-shadow: 0 0 0 1px var(--x-purple); }
+      .x-badge { justify-self: start; display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; border-radius: var(--r-pill);
+        background: var(--x-purple); color: var(--x-white); font-size: 14px; font-weight: var(--weight-medium); }
+      .x-note { margin-top: 28px; display: flex; align-items: center; gap: 12px; color: var(--x-ink-2); }
+      .x-note::before { content: ""; width: 32px; height: 1px; background: var(--x-slate); }
+
+      /* Galeria */
+      .x-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 2vw, 24px); margin: 0; padding: 0; list-style: none; }
+      .x-gallery figure { margin: 0; display: grid; gap: 14px; }
+      .x-gallery img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--r-m); outline: 1px solid rgb(201 206 214 / 0.35); outline-offset: 6px; }
+      .x-gallery figcaption { font-size: 16px; color: var(--x-silver); padding-top: 4px; }
+      @media (min-width: 900px) { .x-gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+      @media (max-width: 480px) { .x-gallery { grid-template-columns: minmax(0, 1fr); } }
+
+      /* Depoimentos */
+      .x-label { justify-self: start; padding: 4px 12px; border: 1px solid var(--x-silver); border-radius: var(--r-pill); font-size: 14px; color: var(--x-ink-2); }
+      .x-quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 32px; margin: 0; padding: 0; list-style: none; }
+      .x-quotes figure { margin: 0; display: grid; gap: 18px; align-content: start; padding-top: 24px; border-top: 1px solid var(--x-silver); }
+      .x-quotes blockquote { margin: 0; font: var(--weight-medium) 26px/1.3 var(--x-serif); color: var(--x-navy); }
+      .x-quotes figcaption { font-size: 16px; color: var(--x-ink-2); }
+
+      /* Agendar */
+      .x-book { display: grid; grid-template-columns: minmax(0, 1fr); gap: 40px; }
+      @media (min-width: 960px) { .x-book { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); align-items: start; } }
+      .x-book__aside { display: grid; gap: 20px; color: var(--x-mist); }
+      .x-book__aside a { color: var(--x-paper); text-underline-offset: 4px; }
+      .x-book__aside a:hover { color: var(--x-slate-light); }
+      .x-inline-link { display: inline-flex; align-items: center; min-height: var(--tap); padding-inline: 2px; }
+      .x-form { display: grid; gap: 28px; padding: clamp(24px, 4vw, 40px); background: var(--x-paper); color: var(--x-ink); border-radius: var(--r-l); }
+      .x-form :focus-visible { outline-color: var(--x-purple); }
+      .x-form fieldset { margin: 0; padding: 0; border: 0; display: grid; gap: 14px; min-width: 0; }
+      .x-form fieldset + fieldset { padding-top: 28px; border-top: 1px solid var(--x-silver); }
+      .x-form legend { padding: 0; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; font: var(--weight-medium) 26px/1.2 var(--x-serif); color: var(--x-navy); }
+      .x-step { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--x-slate);
+        font: var(--weight-medium) 15px/1 var(--sans); color: var(--x-slate); flex: none; }
+      .x-field { display: grid; gap: 8px; }
+      .x-field label, .x-field .x-field__label { font-weight: var(--weight-medium); font-size: 17px; }
+      .x-form select, .x-form input[type="date"], .x-form input[type="text"] {
+        width: 100%; min-height: 54px; padding: 0 16px; font: inherit; font-size: 18px; color: var(--x-ink);
+        background: var(--x-white); border: 1px solid var(--x-slate); border-radius: var(--r-s); appearance: auto;
+      }
+      .x-form [aria-invalid="true"] { border-color: #b3261e; border-width: 2px; }
+      .x-radios { display: flex; flex-wrap: wrap; gap: 10px; }
+      .x-radio { position: relative; }
+      .x-radio input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+      .x-radio span { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; min-width: 104px; padding: 0 20px;
+        border: 1px solid var(--x-slate); border-radius: var(--r-pill); background: var(--x-white); cursor: pointer;
+        transition: background-color var(--dur-quick) ease, color var(--dur-quick) ease; }
+      .x-radio span:hover { border-color: var(--x-purple); }
+      .x-radio input:checked + span { background: var(--x-navy); border-color: var(--x-navy); color: var(--x-paper); }
+      .x-radio input:focus-visible + span { outline: 3px solid var(--x-purple); outline-offset: 3px; }
+      .x-error { color: #b3261e; font-size: 16px; font-weight: var(--weight-medium); }
+      .x-error:empty { display: none; }
+      .x-form__foot { display: grid; gap: 12px; padding-top: 4px; }
+      .x-form__foot .x-btn { width: 100%; }
+      .x-fine { font-size: 16px; color: var(--x-ink-2); }
+
+      /* Contato */
+      .x-contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 32px; margin: 0; }
+      .x-contact > div { padding-top: 20px; border-top: 1px solid var(--x-silver); display: grid; gap: 8px; align-content: start; }
+      .x-contact dt { font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: var(--weight-medium); color: var(--x-slate); }
+      .x-contact dd { margin: 0; display: grid; gap: 6px; }
+      .x-contact dd strong { font: var(--weight-medium) 28px/1.2 var(--x-serif); color: var(--x-navy); }
+      .x-contact a.x-tel { display: inline-flex; align-items: center; min-height: var(--tap); font: var(--weight-medium) 28px/1.2 var(--x-serif); color: var(--x-navy); text-underline-offset: 5px; text-decoration-color: var(--x-silver); }
+      .x-contact a.x-tel:hover { color: var(--x-purple); text-decoration-color: currentColor; }
+      .x-contact .x-btn { justify-self: start; margin-top: 8px; }
+
+      /* Footer */
+      .x-foot { border-top: 1px solid var(--x-silver); padding-top: 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 32px; font-size: 16px; color: var(--x-ink-2); }
+      .x-foot img { height: 44px; width: auto; }
+      .x-foot__brand { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+      .x-foot a { color: var(--x-ink); text-underline-offset: 4px; display: inline-flex; align-items: center; min-height: var(--tap); }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page" id="top">
+      <a class="x-skip" href="#conteudo">Pular para o conteúdo</a>
+
+      <header class="x-header x-band" id="cabecalho">
+        <div class="x-header__bar">
+          <a class="x-logo" href="#top" aria-label="Heloísa Nail Designer, voltar ao início">
+            <img src="img/logo-heloisa-azul-transparente.png" alt="Heloísa Nail Designer" />
+          </a>
+          <button class="x-menu-btn" type="button" aria-expanded="false" aria-controls="menu">
+            Menu
+          </button>
+          <nav class="x-nav" id="menu" aria-label="Principal">
+            <ul>
+              <li><a href="#sobre">Sobre</a></li>
+              <li><a href="#servicos">Serviços</a></li>
+              <li><a href="#galeria">Galeria</a></li>
+              <li><a href="#depoimentos">Depoimentos</a></li>
+              <li><a href="#agendar">Agendar</a></li>
+              <li><a href="#contato">Contato</a></li>
+              <li class="x-nav__cta"><a class="x-btn x-btn--solid" href="#agendar">Agendar</a></li>
+            </ul>
+          </nav>
+          <a class="x-btn x-btn--solid x-header__cta" href="#agendar">Agendar</a>
+        </div>
+      </header>
+
+      <main class="main" id="conteudo" tabindex="-1">
+        <section class="x-hero x-band" aria-labelledby="hero-title">
+          <img class="x-hero__img" src="img/hero.jpg" alt="Mão com unhas azul-marinho apoiada na bancada de trabalho" />
+          <div class="x-hero__copy">
+            <div class="x-crest"><img src="img/logo-heloisa-prata.png" alt="Heloísa Nail Designer" /></div>
+            <p class="x-eyebrow">Nail designer · Santo André - SP</p>
+            <h1 id="hero-title">Precisão em cada detalhe.</h1>
+            <p class="x-hero__sub">Unhas feitas com calma, método e cuidado, em Santo André.</p>
+            <div class="x-btns">
+              <a class="x-btn x-btn--light" href="https://wa.me/5511993111419?text=Ol%C3%A1%2C%20Helo%C3%ADsa!%20Quero%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp (abre em nova aba)">
+                Agendar pelo WhatsApp
+              </a>
+              <a class="x-btn x-btn--ghost" href="#servicos">Ver serviços e preços</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-section" id="sobre" aria-labelledby="sobre-title">
+          <div class="x-head">
+            <p class="x-eyebrow">Sobre a Heloísa</p>
+            <h2 id="sobre-title">Precisão, para mim, é método.</h2>
+          </div>
+          <div class="x-about">
+            <div class="x-about__text">
+              <p>Sou a Heloísa, nail designer em Santo André.</p>
+              <p>Trabalho sentada na minha cadeira de rodas e com uma coordenação motora fina que pede mais de mim do que da maioria. Por isso cada detalhe aqui é pensado: o ângulo da mão, o apoio certo, o tempo que cada camada precisa. Precisão, para mim, não é pressa. É método.</p>
+              <p>No meu espaço você é atendida com calma, com o preço claro antes de sentar e com unhas feitas para durar. Se quiser conversar antes, é só me chamar no WhatsApp.</p>
+            </div>
+            <ul class="x-values">
+              <li><span>01</span><h3>Precisão</h3><p>Cada camada no seu tempo.</p></li>
+              <li><span>02</span><h3>Preço claro</h3><p>Você sabe o valor antes de sentar.</p></li>
+              <li><span>03</span><h3>Espaço acessível</h3><p>Atendimento sem pressa e sem barreiras.</p></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="x-section x-band x-mistband" id="servicos" aria-labelledby="servicos-title">
+          <div class="x-head">
+            <p class="x-eyebrow">Serviços e preços</p>
+            <h2 id="servicos-title">O valor antes de sentar.</h2>
+            <p>Tempo e preço de cada serviço, sem surpresa no final.</p>
+          </div>
+          <ul class="x-services">
+            <li class="x-service"><h3>Manicure tradicional</h3><p class="x-service__meta"><span class="x-service__time">40 min</span><span class="x-service__price">R$ 25</span></p></li>
+            <li class="x-service"><h3>Esmaltação em gel</h3><p class="x-service__meta"><span class="x-service__time">1h</span><span class="x-service__price">R$ 45</span></p></li>
+            <li class="x-service"><h3>Banho de gel</h3><p class="x-service__meta"><span class="x-service__time">1h15</span><span class="x-service__price">R$ 60</span></p></li>
+            <li class="x-service is-pick"><span class="x-badge">Mais procurado</span><h3>Alongamento em gel</h3><p class="x-service__meta"><span class="x-service__time">2h</span><span class="x-service__price">R$ 90</span></p></li>
+            <li class="x-service"><h3>Manutenção do alongamento</h3><p class="x-service__meta"><span class="x-service__time">1h30</span><span class="x-service__price">R$ 60</span></p></li>
+            <li class="x-service"><h3>Nail art</h3><p class="x-service__meta"><span class="x-service__time">Por unha</span><span class="x-service__price"><small>a partir de</small> R$ 5</span></p></li>
+          </ul>
+          <p class="x-note">Pagamento via Pix, dinheiro ou cartão.</p>
+        </section>
+
+        <section class="x-section x-band x-dark" id="galeria" aria-labelledby="galeria-title">
+          <div class="x-head">
+            <p class="x-eyebrow">Galeria de trabalhos</p>
+            <h2 id="galeria-title">Feitas com calma, feitas para durar.</h2>
+          </div>
+          <ul class="x-gallery">
+            <li><figure><img src="img/galeria-1.jpg" alt="Alongamento em gel azul-marinho com uma unha prata de destaque" loading="lazy" /><figcaption>Alongamento em gel azul-marinho com unha prata</figcaption></figure></li>
+            <li><figure><img src="img/galeria-2.jpg" alt="Manicure com esmaltação em gel lilás" loading="lazy" /><figcaption>Manicure com esmaltação lilás</figcaption></figure></li>
+            <li><figure><img src="img/galeria-3.jpg" alt="Nail art minimalista em azul e prata" loading="lazy" /><figcaption>Nail art minimalista azul e prata</figcaption></figure></li>
+            <li><figure><img src="img/galeria-4.jpg" alt="Francesinha com ponta prata cromada" loading="lazy" /><figcaption>Francesinha com ponta prata cromada</figcaption></figure></li>
+          </ul>
+        </section>
+
+        <section class="x-section" id="depoimentos" aria-labelledby="depoimentos-title">
+          <div class="x-head">
+            <p class="x-eyebrow">Depoimentos</p>
+            <h2 id="depoimentos-title">O que fica depois do atendimento.</h2>
+            <p class="x-label">Depoimentos ilustrativos</p>
+          </div>
+          <ul class="x-quotes">
+            <li><figure><blockquote><p>“Finalmente vi o preço antes de marcar e agendei em um minuto.”</p></blockquote><figcaption>Camila, 27</figcaption></figure></li>
+            <li><figure><blockquote><p>“Meu alongamento durou quatro semanas perfeito. Ela é detalhista demais.”</p></blockquote><figcaption>Bianca, 23</figcaption></figure></li>
+            <li><figure><blockquote><p>“Consegui remarcar sem constrangimento nenhum. Atendimento muito humano.”</p></blockquote><figcaption>Juliana, 34</figcaption></figure></li>
+          </ul>
+        </section>
+
+        <section class="x-section x-band x-dark" id="agendar" aria-labelledby="agendar-title">
+          <div class="x-book">
+            <div class="x-book__aside">
+              <div class="x-head">
+                <p class="x-eyebrow">Agendar</p>
+                <h2 id="agendar-title">Seu horário em menos de um minuto.</h2>
+                <p>Escolha o serviço, o dia e o período. A mensagem chega pronta no WhatsApp.</p>
+              </div>
+              <p>Prefere conversar? <a href="https://wa.me/5511993111419?text=Ol%C3%A1%2C%20Helo%C3%ADsa!%20Quero%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" class="x-inline-link" aria-label="Chame no WhatsApp (abre em nova aba)">Chame no WhatsApp</a></p>
+              <p>Remarcações com até 24h de antecedência, sem custo.</p>
+            </div>
+
+            <form class="x-form" id="form-agendar" novalidate aria-describedby="form-status">
+              <fieldset>
+                <legend><span class="x-step" aria-hidden="true">1</span>Serviço</legend>
+                <div class="x-field">
+                  <label for="servico">Qual serviço você quer?</label>
+                  <select id="servico" name="servico" required aria-describedby="servico-erro">
+                    <option value="">Selecione um serviço</option>
+                    <option value="Manicure tradicional">Manicure tradicional · 40 min · R$ 25</option>
+                    <option value="Esmaltação em gel">Esmaltação em gel · 1h · R$ 45</option>
+                    <option value="Banho de gel">Banho de gel · 1h15 · R$ 60</option>
+                    <option value="Alongamento em gel">Alongamento em gel · 2h · R$ 90</option>
+                    <option value="Manutenção do alongamento">Manutenção do alongamento · 1h30 · R$ 60</option>
+                    <option value="Nail art">Nail art · a partir de R$ 5 por unha</option>
+                  </select>
+                  <p class="x-error" id="servico-erro"></p>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend><span class="x-step" aria-hidden="true">2</span>Data e período</legend>
+                <div class="x-field">
+                  <label for="data">Data preferida</label>
+                  <input type="date" id="data" name="data" required aria-describedby="data-erro" />
+                  <p class="x-error" id="data-erro"></p>
+                </div>
+                <div class="x-field" role="radiogroup" aria-labelledby="periodo-label" aria-describedby="periodo-erro">
+                  <p class="x-field__label" id="periodo-label">Período</p>
+                  <div class="x-radios">
+                    <label class="x-radio"><input type="radio" name="periodo" value="Manhã" required /><span>Manhã</span></label>
+                    <label class="x-radio"><input type="radio" name="periodo" value="Tarde" /><span>Tarde</span></label>
+                    <label class="x-radio"><input type="radio" name="periodo" value="Noite" /><span>Noite</span></label>
+                  </div>
+                  <p class="x-error" id="periodo-erro"></p>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend><span class="x-step" aria-hidden="true">3</span>Seu nome</legend>
+                <div class="x-field">
+                  <label for="nome">Como posso te chamar?</label>
+                  <input type="text" id="nome" name="nome" autocomplete="given-name" required aria-describedby="nome-erro" />
+                  <p class="x-error" id="nome-erro"></p>
+                </div>
+              </fieldset>
+
+              <div class="x-form__foot">
+                <button class="x-btn x-btn--solid" type="submit">Enviar pelo WhatsApp</button>
+                <p class="x-fine" id="form-status" role="status" aria-live="polite">O WhatsApp abre em uma nova aba com a mensagem pronta.</p>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section class="x-section" id="contato" aria-labelledby="contato-title">
+          <div class="x-head">
+            <p class="x-eyebrow">Contato e localização</p>
+            <h2 id="contato-title">Atendimento com hora marcada.</h2>
+          </div>
+          <dl class="x-contact">
+            <div>
+              <dt>Onde</dt>
+              <dd><strong>Santo André - SP</strong><span class="x-fine">Endereço enviado na confirmação do horário.</span></dd>
+            </div>
+            <div>
+              <dt>WhatsApp</dt>
+              <dd>
+                <a class="x-tel" href="tel:+5511993111419">(11) 99311-1419</a>
+                <a class="x-btn x-btn--line" href="https://wa.me/5511993111419?text=Ol%C3%A1%2C%20Helo%C3%ADsa!%20Quero%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" aria-label="Chamar no WhatsApp (abre em nova aba)">Chamar no WhatsApp</a>
+              </dd>
+            </div>
+            <div>
+              <dt>Horários</dt>
+              <dd><strong>Terça a sábado</strong><span class="x-fine">9h às 19h</span></dd>
+            </div>
+          </dl>
+        </section>
+      </main>
+
+      <footer class="x-foot">
+        <div class="x-foot__brand">
+          <img src="img/logo-heloisa-azul-transparente.png" alt="Heloísa Nail Designer" />
+          <p>Heloísa Nail Designer · Santo André - SP</p>
+        </div>
+        <p>Site desenvolvido por Nathália Nishimuta</p>
+      </footer>
+    </div>
+    <script src="js/hark.js"></script>
+    <script>
+      (function () {
+        document.documentElement.setAttribute("data-theme", "light");
+
+        /* Mobile menu */
+        var header = document.getElementById("cabecalho");
+        var btn = header.querySelector(".x-menu-btn");
+        function setMenu(open) {
+          header.classList.toggle("is-open", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+          btn.textContent = open ? "Fechar" : "Menu";
+        }
+        btn.addEventListener("click", function () { setMenu(!header.classList.contains("is-open")); });
+        header.querySelectorAll(".x-nav a").forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && header.classList.contains("is-open")) { setMenu(false); btn.focus(); }
+        });
+
+        /* Booking form */
+        var form = document.getElementById("form-agendar");
+        var status = document.getElementById("form-status");
+        var dateInput = document.getElementById("data");
+        var t = new Date();
+        var today = t.getFullYear() + "-" + String(t.getMonth() + 1).padStart(2, "0") + "-" + String(t.getDate()).padStart(2, "0");
+        dateInput.min = today;
+
+        function setError(field, id, msg) {
+          document.getElementById(id).textContent = msg;
+          if (field) field.setAttribute("aria-invalid", msg ? "true" : "false");
+        }
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var servico = form.servico.value;
+          var data = dateInput.value;
+          var periodoEl = form.querySelector('input[name="periodo"]:checked');
+          var nome = form.nome.value.trim();
+          var first = null;
+
+          setError(form.servico, "servico-erro", servico ? "" : "Escolha um serviço.");
+          if (!servico) first = first || form.servico;
+          var dataMsg = !data ? "Escolha uma data." : data < today ? "Escolha uma data a partir de hoje." : "";
+          setError(dateInput, "data-erro", dataMsg);
+          if (dataMsg) first = first || dateInput;
+          document.getElementById("periodo-erro").textContent = periodoEl ? "" : "Escolha um período.";
+          if (!periodoEl) first = first || form.querySelector('input[name="periodo"]');
+          setError(form.nome, "nome-erro", nome ? "" : "Escreva seu nome.");
+          if (!nome) first = first || form.nome;
+
+          if (first) {
+            status.textContent = "Faltam algumas informações. Confira os campos marcados.";
+            first.focus();
+            return;
+          }
+
+          var p = data.split("-");
+          var dataBR = p[2] + "/" + p[1] + "/" + p[0];
+          var msg = "Olá, Heloísa! Meu nome é " + nome + ". Quero agendar " + servico + " no dia " + dataBR + ", período " + periodoEl.value + ".";
+          var url = "https://wa.me/5511993111419?text=" + encodeURIComponent(msg);
+          status.textContent = "Abrindo o WhatsApp com a sua mensagem…";
+          var w = window.open(url, "_blank");
+          if (w) { try { w.opener = null; } catch (err) {} } else { window.location.href = url; }
+        });
+      })();
+    </script>
+  </body>
+</html>
